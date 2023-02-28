@@ -8,5 +8,5 @@ docker-compose pull
 ```
 Then build containers:
 ```
-docker-compose up -d
+docker-compose up -d --build
 ```

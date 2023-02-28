@@ -1,7 +1,7 @@
 # vulnerable-web-app-ctf
-## ctf challenge: Secrets of Mesopotamia
+### ctf challenge: Secrets of Mesopotamia
 
-## In this challenge you must hack into the admin account by discovering the secrets within. There may be more than one way to solve the challenge, but all routes lead to glory and security patches!
+### In this challenge you must hack into the admin account by discovering the secrets within. There may be more than one way to solve the challenge, but all routes lead to glory and security patches!
 
 ## How to run
 In the root directory pull images:

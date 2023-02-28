@@ -10,3 +10,10 @@ Then build containers:
 ```
 docker-compose up -d --build
 ```
+To stop running containers:
+```
+docker-compose down
+```
+
+## Environment variables
+The flag,server keys, ports, network and other configuration changes can be made in the docker-compose.yml file.

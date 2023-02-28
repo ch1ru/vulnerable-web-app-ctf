@@ -1,0 +1,253 @@
+:root {
+
+    /*Theme colours*/
+    --text-gray: #3f4954;
+    --text-light : #686666da;
+    --bg-color: #0f0f0f;
+    --white: #ffffff;
+    --midnight: #104f55;
+
+    /*gradiant colour*/
+    --sky: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+    --deepBlue: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+    
+}
+
+
+/*------------Login------------*/
+@import url('https://fonts.googleapis.com/css?family=Exo:400,700');
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    overflow: hidden;
+    position: relative;
+}
+
+.login {
+    width: 100%;
+    position: fixed;
+    top:50vh;
+    
+}
+
+.login h1{
+    text-align: center;
+    color: #fff;
+    font-size: 60px;
+}
+
+@-webkit-keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+ }
+ 
+ @keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+ }
+ 
+ .login .fadeIn {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+ }
+
+ .login form h3 {
+    margin-top: .6rem;
+    color: white;
+    font-size: 1.2rem;
+ }
+
+
+ .login form {
+    width: 50%;
+position: relative;
+left: 50%;
+transform: translate(-50%, -50%);
+text-align: center;
+justify-content: center;
+border-radius: 16px;
+padding: 80px 40px;
+
+}
+
+.login .inputs {
+    display: flex;
+    flex-direction: column;
+    margin-top: .3rem;
+}
+
+.login form .inputs input {
+    align-self: center;
+    width: 15rem;
+    margin-top: 1.5rem;
+    position: relative;
+      -webkit-appearance: none;
+      border-radius: .6rem;
+      height: 3rem;
+      padding: .5rem 1.5rem;
+        padding-right: 1.5rem;
+      outline: 0 !important;
+      background: hsla(0,0%,97.6%,.2);
+      -webkit-transition: -webkit-box-shadow .3s ease;
+      transition: -webkit-box-shadow .3s ease;
+      transition: box-shadow .3s ease;
+      transition: box-shadow .3s ease,-webkit-box-shadow .3s ease;
+      border: 1px solid hsla(0,0%,100%,.1);
+    
+}
+
+.login form input {
+    color: white;
+    font-size: 14px;
+}
+
+.login form .inputs .errorFrame {
+    border-color: #eb144c;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.login form input[type="text"]:hover {
+    border-color: #b4b6c5;
+    border-style: solid;
+    border-width: 2px;
+}
+
+.login input[type="password"]:hover {
+    border-color: #b4b6c5;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.login button {
+    color: black;
+    
+}
+
+.login form input::placeholder {
+    color: white;
+}
+
+.login .loginBtn {
+    width: 12rem;
+    top: 1.5rem;
+    height: 3rem;
+    background: white;
+    border: none;
+    border-radius: 30px;
+    padding: 14px 14px;
+    font-size: 0.9rem;
+    margin-top: 1.5rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: black;
+    outline: none;
+    font-weight: bold;
+
+}
+
+.login .loginBtn:hover {
+    background: transparent;
+    border: 2px solid #fff;
+    border-radius: 30px;
+    padding: 14px 14px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: white;
+    outline: none;
+    transition: 0.2s ease-in-out;
+    font-weight: bold;
+    
+}
+
+.login .forgotPass {
+    margin-top: 1rem;
+}
+
+.login a {
+    color: white;
+    text-decoration: none;
+}
+
+.login a:hover {
+    text-decoration: underline;
+}
+
+.area{
+    background-image:url("../images/tablet.png"); 
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+    width: 100%;
+    height:100vh;
+   
+}
+
+/*=================Media queries================*/
+
+@media screen and (max-width: 768px) {
+    
+    .login {
+
+        top:25vh;
+    }
+
+    .login form {
+        width: 95%;
+    position: relative;
+    transform: translate(-50%, -25%);
+    text-align: center;
+    justify-content: center;
+    padding: 80px 40px;
+    
+    }
+    
+    .login form input {
+        width: 50%;
+        margin-top: 1.5rem;
+        position: relative;
+          -webkit-appearance: none;
+          border-radius: .6rem;
+          height: 2rem;
+          padding: .2rem 1rem;
+            padding-right: 1rem;
+          outline: 0 !important;
+          background: hsla(0,0%,97.6%,.2);
+          -webkit-transition: -webkit-box-shadow .3s ease;
+          transition: -webkit-box-shadow .3s ease;
+          transition: box-shadow .3s ease;
+          transition: box-shadow .3s ease,-webkit-box-shadow .3s ease;
+          border: 1px solid hsla(0,0%,100%,.1);
+        
+    }
+
+    .login form h3 {
+        font-size: 16px;
+    }
+
+    .login h1 {
+        font-size: 46px;
+    }
+}
+
+
+
+@keyframes animate {
+
+    0%{
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+        border-radius: 0;
+    }
+
+    100%{
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+        border-radius: 50%;
+    }
+
+}

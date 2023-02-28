@@ -1,0 +1,36 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    background: darkslategray;
+    height: 4rem;
+    align-items: center;
+    width: 98.5%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.header .right {
+    display: flex;
+    gap: 1rem;
+    text-align: left;
+    color: white;
+}
+
+a:visited, a:hover, a:active {
+    color: inherit;
+}
+
+.header .left {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    color: white;
+}
+
+.logo {
+    height: 3rem;
+    width: 3rem;
+}

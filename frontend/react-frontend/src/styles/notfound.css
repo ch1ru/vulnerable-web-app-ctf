@@ -1,0 +1,8 @@
+.imgnothing {
+    background-image: url('../images/neb.png');
+    width: 50rem;
+    height: 40rem;
+    position: absolute;
+    left: 28%;
+    margin-top: 3rem;
+}

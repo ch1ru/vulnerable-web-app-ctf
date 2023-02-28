@@ -1,0 +1,79 @@
+:root {
+    --button-border-radius: 4px;
+    --header-height: 5rem;
+    
+    --twofa-color: #329932;
+    
+    --update-btn-color: #4caf50;
+    --delete-btn-color: #E74C3C;
+    --btn-padding: 10px;
+}
+
+.body-account {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 4rem;
+    background-image:url("../images/tablet.png");
+    height: calc(100vh - 4rem);
+}
+
+.body-account .bottom-text {
+    justify-self: flex-end;
+}
+
+.profile-pic {
+    width: 12rem;
+    height: 12rem;
+    border-radius: 8px;
+    border: 3px solid grey;
+}
+
+.profile {
+    color: white;
+    text-align: center;
+    height: calc(100vh - 4rem);
+}
+
+.toggle {
+    --width: 40px;
+    --height: calc(var(--width) / 2);
+    --border-radius: calc(var(--height) / 2);
+    
+    display: inline-block;
+    cursor: pointer;
+}
+
+.toggle__input {
+    display: none;
+}
+
+.toggle__input:checked ~ .toggle__fill {
+    background: var(--update-btn-color);
+}
+
+.toggle__fill {
+    position: relative;
+    width: var(--width);
+    height: var(--height);
+    border-radius: var(--border-radius);
+    background: #dddddd;
+    transition: .2s;
+}
+
+.toggle__fill::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: var(--height);
+    width: var(--height);
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .25);
+    border-radius: var(--border-radius);
+    transition: transform .2s;
+}
+
+.toggle__input:checked ~ .toggle__fill::after {
+    transform: translateX(var(--height));
+}

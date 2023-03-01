@@ -56,7 +56,7 @@ export const handleLogin = async (req: Request, res: Response) => {
                 );
 
 
-                res.cookie('jwt', refreshToken, { httpOnly: true, maxAge: 6 * 60 * 60 * 1000 });
+                res.cookie('jwt', refreshToken, { httpOnly: false, maxAge: 6 * 60 * 60 * 1000 });
                 return res.status(Code.OK)
                 .send(new HttpResponse(Code.OK, Status.OK, 'User is logged in', {accessToken: accessToken}));
         }

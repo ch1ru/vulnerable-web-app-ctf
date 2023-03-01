@@ -1,0 +1,90 @@
+version: "3"
+services:
+  mysql:
+    build:
+      context: ./backend/database
+      dockerfile: Dockerfile
+    container_name: mysql_database
+    command: --init-file /data/application/db/init.sql
+    volumes:
+      - ./backend/database/dbinit/init.sql:/data/application/db/init.sql
+      - ./backend/database/mysql:/var/lib/mysql
+    ports:
+      - 3306:3306
+    environment:
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - MYSQL_DATABASE=usersdb
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=letmein
+      - MYSQL_ROOT_PASSWORD=letmein
+      - SERVICE_TAGS=dev
+      - SERVICE_NAME=mysqldb
+    expose:
+      - 3306
+    restart: always
+    networks:
+      dockernet:
+        ipv4_address: 192.168.10.2
+
+  vuln_nodejs:
+    container_name: vulnerable_web_app
+    build:
+      context: ./backend/nodejs
+      dockerfile: Dockerfile
+    ports:
+      - "4000:4000"
+    environment:
+      - SERVER_PORT=4000
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_NAME=usersdb
+      - DB_CONNECTION_LIMIT=200
+      - DB_USER=admin
+      - DB_PASSWORD=letmein
+      - ACCESS_TOKEN_SECRET=babylon5252 # insecure key
+      - REFRESH_TOKEN_SECRET=babylon5252 # insecure key
+      - FLAG=flag{hiddenthings120c}
+    depends_on:
+      - mysql
+    restart: always
+    networks:
+      dockernet:
+        ipv4_address: 192.168.10.3
+
+  react_frontend:
+    container_name: react_frontend
+    build:
+      context: ./frontend/react-frontend
+      dockerfile: Dockerfile
+    environment:
+      - PORT=3000
+      - API_ENDPOINT=http://192.168.22.100
+    ports:
+      - "3000:3000"
+    restart: always
+    networks:
+      dockernet:
+        ipv4_address: 192.168.10.4
+
+  nginx_proxy:
+    container_name: nginx_proxy
+    build: 
+      context: ./frontend/nginx
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "443:443"
+      - "80:80"
+    volumes:
+      - ./frontend/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    networks:
+      dockernet:
+          ipv4_address: 192.168.10.5
+
+networks:
+  dockernet:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 192.168.10.0/24

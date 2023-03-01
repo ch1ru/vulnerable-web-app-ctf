@@ -18,4 +18,4 @@ docker-compose down
 ```
 
 ## Environment variables
-The flag,server keys, ports, network and other configuration changes can be made in the docker-compose.yml file.
+configuration changes can be made in the docker-compose.yml file.
